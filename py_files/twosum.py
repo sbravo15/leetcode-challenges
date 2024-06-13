@@ -1,48 +1,49 @@
-# Create a list of five different Fruits: 
-Fruits = ["Apple","Banana","Kiwi","Strawberry","Mango"]
+# LeetCode Two Sum Problem Solution 
+# Date: 6/12/2024
+# Given a list of numbers and a target, find indices of the two numbers such that they add up to the target.
 
-first_fruit = Fruits[0]
-last_fruit = Fruits[4]
+# Input list of numbers
+numbers = [3, 2, 4]
 
-# for fruit in Fruits:
-#     print(fruit)
+# Target sum
+target = 6
 
-# Nested Loop
-# for i in range(len(Fruits)):
-#     for j in range(i + 1, len(Fruits)):
-#         if Fruits[i] and Fruits[j]
-#         print(Fruits[i],Fruits[j])
+# Initialize an empty list to store indices
+indices = []
 
-# Find the sum of all the multiples of 3 or 5 below 1000
-multiples = []
-for num in range(1000):
-    if num % 3 == 0 or num % 5 == 0:
-        multiples.append(num)
-    else: 
-        pass
-def sum_list():
-    return print(sum(multiples))
+# Iterate over each pair of numbers in the list with a Nested Loop
+for i in range(len(numbers)):
+    for j in range(i + 1, len(numbers)):
+        # Check if the sum of the pair equals the target
+        if numbers[i] + numbers[j] == target:
+            # If so, append their indices to the indices list
+            indices.append(i)
+            indices.append(j)
+            break  # Break the inner loop once the pair is found
+    if indices:  # If indices are found, break the outer loop as well
+        break
 
-sum_list()
+# Print the indices of the numbers that sum to the target
+print(indices)  # Expected Output: [1, 2]
 
-#
-# def fibonacci(n):
-#     sequence = []
-#     a, b = 0, 1
-#     while len(sequence) < n:
-#         sequence.append(a)
-#         a, b = b, a + b
-#     return sequence
 
-# # Example usage
-# n_terms = 10
-# print(fibonacci(n_terms))  # Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+# The Actual One uploaded to Leet Code
 
-def fibonacci(n):
-    sequence = []
-    a, b = 0, 1
-    while len(sequence) < n: 
-        sequence.append(a) #adds the number into the fibonacci series list
-        a, b = b, a + b #Fibonacci
-    return sequence
+# class Solution(object):
+#     def twoSum(self, nums, target):
+#         """
+#         :type nums: List[int]
+#         :type target: int
+#         :rtype: List[int]
+#         """
+#         indices = []
+#         # Nested loop
+#         for i in range(len(nums)):
+#             for j in range(i + 1, len(nums)):
+#                 if nums[i] + nums[j] == target:
+#                     indices.append(i)
+#                     indices.append(j)
+#                     return indices
 
+
+# Learned: Nested Loops, how to append indices and values of a list, sum(), and how to iterate a list with for loop. 
