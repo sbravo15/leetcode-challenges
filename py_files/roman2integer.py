@@ -1,3 +1,7 @@
+# LeetCode Roman Number to Integer
+# Date: 6/14-15/2024
+# Given a number Roman String, turn into an integer. 
+
 # Symbol       Value
 # I             1
 # V             5
