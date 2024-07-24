@@ -1,6 +1,7 @@
 # LeetCode Roman Number to Integer
 # Date: 6/14-15/2024
 # Given a number Roman String, turn into an integer. 
+# Runtime 51 ms (Slow compared to others)
 
 class Solution(object):
     def romanToInt(self, s):
