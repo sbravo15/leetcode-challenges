@@ -2,44 +2,49 @@
 # Date: 6/14-15/2024
 # Given a number Roman String, turn into an integer. 
 
-# Symbol       Value
-# I             1
-# V             5
-# X             10
-# L             50
-# C             100
-# D             500
-# M             1000
+class Solution(object):
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        # Dictionary to map Roman numerals to their integer values
+        roman_values = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
 
-# Values In a Dictionary:
-roman_str = "IV"
+        # Initialize total and previous value
+        total = 0
+        prev_value = 0
 
-roman_values = {
-    'I': 1, 
-    'V': 5,
-    'X': 10,
-    'L': 50, 
-    'C': 100,
-    'D': 500,
-    'M': 1000
-}
+        # Iterating through the string in reverse order
+        for char in reversed(s):
+            value = roman_values[char]
 
-# Iterating through the string and printing corresponding values
-for char in roman_str: 
-    if char in roman_values: 
-        print(f"Character: {char}, Value: {roman_values[char]}")
-    else: 
-        print(f"Character: {char} is not a valid Roman numeral")
+            # Print the character and its value for debugging
+            print("Character: {}, Value: {}".format(char, value))
 
-# Calculating the integer value
-total = 0
-prev_value = 0 
+            # If the current value is less than the previous value, subtract it from total
+            if value < prev_value:
+                total -= value
+            else:
+                total += value
 
-for char in roman_str: 
-    value = roman_values[char]
-    total += value
-    if value > prev_value:
-        total -= 2 * prev_value
-    prev_value = value
+            # Update the previous value
+            prev_value = value
 
-print("Integer value:", total)
+        return total
+        
+# Example usage
+solution = Solution()
+print(solution.romanToInt("III"))    # Output: 3
+print(solution.romanToInt("IV"))     # Output: 4
+print(solution.romanToInt("IX"))     # Output: 9
+print(solution.romanToInt("LVIII"))  # Output: 58
+print(solution.romanToInt("MCMXCIV"))# Output: 1994
